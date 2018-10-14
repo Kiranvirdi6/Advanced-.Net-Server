@@ -1,0 +1,20 @@
+﻿@using MVCDemo01.Models;
+@model DailyReportVM
+@{
+    ViewBag.Title = "DailyReport";
+    //   IEnumerable
+    //Game TopRatedGame= Model.TopRatedGame;
+}
+
+<h2>DailyReport</h2>
+<p>@ViewBag.msg</p>
+<h3>New Members</h3>
+@foreach (Member m in Model.NewMember)
+{
+    <p><b>@m.FirstName @m.LastName (@m.ID)</b></p>
+    @Html.Partial("_Member", m);
+}
+<h3>Top Rated Game</h3>
+@Model.TopRatedGame.Title (@Model.TopRatedGame.Rating)
+
+

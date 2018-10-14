@@ -1,0 +1,17 @@
+﻿@using MVCDemo01.Models;
+@{
+    Member m = new Member()
+    {
+        ID = 1,
+        FirstName = "kiranpreet",
+        LastName = "kaur"
+    };
+    ViewBag.Title = "action5";
+}
+
+<h2>action5</h2>
+<p>@ViewBag.msg</p>
+<p><b>@m.FirstName @m.LastName</b><p>
+
+<p>@ViewBag.msg</p>
+@Html.Partial("_Member", m);

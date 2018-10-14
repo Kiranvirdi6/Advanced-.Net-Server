@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+        $().ready(function () {
+
+            $("#getProducts").on("click", function () {
+
+                $.getJSON("http://localhost:50000/api/products",
+                    function (data) {
+                        $.each(data, function (key, val) {
+                            var str = "";
+                            str += "<tr>";
+                            str += "<td>" + val.Id + "</td>";
+                            str += "<td>" + val.Name + "</td>";
+                            str += "<td>" + val.Price + "</td>";
+                            str += "</tr>";
+                            $("#products tbody").append(str);
+                        });
+                    });
+            });
+        });
+
+    </script>
+    <title></title>
+</head>
+<body>
+
+    <table id="products">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+    </table>
+    <input type="button" id="getProducts" value="Get Products" />
+
+</body>
+</html>
